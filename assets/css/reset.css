@@ -1,0 +1,20 @@
+#first:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+#second:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+#third:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+header:after {
+    content: "";
+    display: table;
+    clear: both;
+}

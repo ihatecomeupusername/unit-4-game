@@ -1,0 +1,25 @@
+.card-img-top
+{
+    height: 200px;
+}
+.card{
+    float: left;
+}
+
+#vs
+{
+    height: 200px;
+    width: 200px;
+    float: left
+}
+h1
+{
+    float: right;
+}
+body
+{
+    background-image: url("../images/background.jpg");
+    background-image: url("../images/background.jpg");
+    background-size: auto;
+    font-family: 'Bahianita', cursive;
+}
