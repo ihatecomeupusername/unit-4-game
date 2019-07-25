@@ -1,11 +1,13 @@
-var character = function(id, name, pwr, source){
+var character = function(id, name, pwr, hp, source){
     this.id = id;
     this.name = name;
     this.pwr = pwr;
+    this.hp = hp;
     this.source = source;
 };
 var players=[];
-var heroChoose = 0;
+var heroChoose;
+var enemyCount;
 function fight()
 {
     $("#first").hide();
@@ -15,13 +17,13 @@ function fight()
 
     $(".hFight_name").text(players[0].name);
     $(".hFight_img").attr("src", players[0].source);
+    $(".hFight_hp").text(players[0].hp);
     $(".hFight_pwr").text(players[0].pwr);
 
     $(".vFight_name").text(players[1].name);
     $(".vFight_img").attr("src", players[1].source);
+    $(".vFight_hp").text(players[1].hp);
     $(".vFight_pwr").text(players[1].pwr);
-    console.log(players[1].source)
-
 }
 function heroClicked(hero)
 {
@@ -29,7 +31,8 @@ function heroClicked(hero)
         var c1 = new character();
         c1.id=hero;
         c1.name=$(hero).attr("alt");
-        c1.pwr=$(hero).find(".card-text").text();
+        c1.pwr=$(hero).find(".pwr").text();
+        c1.hp=$(hero).find(".hp").text();
         c1.source=$(hero).children("img").attr("src");
         heroChoose++;
         $("#second").show();
@@ -44,7 +47,8 @@ function enemyClicked(enemy){
         var c2 = new character();
         c2.id=enemy;
         c2.name=$(enemy).attr("alt");
-        c2.pwr=$(enemy).find(".card-text").text();
+        c2.pwr=$(enemy).find(".pwr").text();
+        c2.hp=$(enemy).find(".hp").text();
         c2.source=$(enemy).children("img").attr("src");
         heroChoose ++;
         players.push(c2);
@@ -140,17 +144,46 @@ function ifClicked(event)
         $("#missy").hide();
         enemyClicked("#silence");
     }
-
+}
+function attack()
+{
+    players[0].hp = players[0].hp-players[1].pwr;
+    players[1].hp = players[1].hp-players[0].pwr;
+    $(".hFight_pwr").text(players[0].pwr);
+    $(".vFight_pwr").text(players[1].pwr);
+    if (players[0].hp <= 0)
+    {
+        $("#attack").hide();
+        $("#after").show();
+        $("#result").text("You are defeated!");
+    }
+    else if(players[1].hp <= 0 || enemyCount < 6)
+    {
+        $("#attack").hide();
+        $("#after").show();
+        $("#result").text("Enemy is defeated!");
+    }
+    else if(players[1].hp <=0 || enemyCount >= 6) {
+        $("#attack").hide();
+        $("#reset").show();
+        $("#result").text("You Win!!!");
+    }
 }
 function startGame()
 {
     $("#second").hide();
     $("#third").hide();
     $("#attack").hide();
+    $("#after").hide();
+    heroChoose = 0;
+    enemyCount = 0;
 }
 $(document).ready(function()
 {
     startGame();
     $(document).on("click", ifClicked);
-
+    $("#attack").on("click", function(){
+        console.log("clicked");
+        attack();
+    });
 });

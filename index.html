@@ -20,10 +20,11 @@
     <div id="first">
         <h2>Choose Your Character</h2>
         <div class="card" id="9" style="width: 200px;" alt="9">
-            <h8 class="card-title">Card title</h8>
+            <h8 class="card-title">9</h8>
             <img src="assets/images/d9.jpg" class="card-img-top" alt="9">
             <div class="card-body">
-                <p class="card-text">100</p>
+                <p class="card-text hp">100</p>
+                <p class="card-text pwr">50</p>
             </div>
         </div>
         <div class="card" id="10" style="width: 200px;" alt="10">
@@ -52,10 +53,11 @@
     <div id="second">
         <h2>Choose Your Enemy</h2>
         <div class="card" id="angel" style="width: 200px;"alt="angel">
-            <h8 class="card-title">Card title</h8>
+            <h8 class="card-title">Weeping Angel</h8>
             <img src="assets/images/weepingAngel.jpg" class="card-img-top" alt="angel">
             <div class="card-body">
-                <p class="card-text">100</p>
+                <p class="card-text hp">100</p>
+                <p class="card-text pwr">20</p>
             </div>
         </div>
         <div class="card" id="cyberman" style="width: 200px;" alt="cyberman">
@@ -101,6 +103,7 @@
             <h8 class="card-title hFight_name"></h8>
             <img src="" class="card-img-top hFight_img">
             <div class="card-body">
+                <p class="card-text hFight_hp"></p>
                 <p class="card-text hFight_pwr"></p>
             </div>
         </div>
@@ -109,11 +112,17 @@
             <h8 class="card-title vFight_name"></h8>
             <img src="" class="card-img-top vFight_img">
             <div class="card-body">
+                <p class="card-text vFight_hp"></p>
                 <p class="card-text vFight_pwr"></p>
             </div>
         </div>
     </div>
     <button id="attack">Attack</button>
+    <div id="result"></div>
+    <div id="after">
+        <button id="reset">Restart</button>
+        <button id="next">Keep Fighting!</button>
+    </div>
 </section>
 
 <footer>

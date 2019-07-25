@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #working{
+            float: left;
+        }
+        #compare{
+            float: left;
+        }
+    </style>
+</head>
+<body>
+<div id = "working"></div>
+<div id = "compare"></div>
+
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script>
+    for (var i = 1; i <=100; i ++)
+    {
+        if (i%3 === 0 && i%5 === 0)
+        {$("#working").append("FizzBuzz</br>");}
+        else if(i%3 === 0)
+        {$("#working").append("Fizz</br>");}
+        else if(i%5 === 0)
+        {$("#working").append("Buzz</br>");}
+        else
+        {$("#working").append(i+"</br>");}
+    }
+
+    for (var i = 1; i <= 100; i ++ )
+    {
+        $("#compare").append(i+"</br>");
+    }
+</script>
+</html>
